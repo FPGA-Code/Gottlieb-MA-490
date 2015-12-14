@@ -1,0 +1,141 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'MA_490:Core|cpu_clk'
+Slack : -16.630
+TNS   : -8431.229
+
+Type  : Slow Model Setup 'clk_358'
+Slack : -6.379
+TNS   : -245.452
+
+Type  : Slow Model Setup 'clk_50'
+Slack : -1.227
+TNS   : -7.219
+
+Type  : Slow Model Setup 'Clock_gen|altpll_component|pll|clk[0]'
+Slack : 68.698
+TNS   : 0.000
+
+Type  : Slow Model Hold 'Clock_gen|altpll_component|pll|clk[0]'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Hold 'MA_490:Core|cpu_clk'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Hold 'clk_358'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Hold 'clk_50'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'KeyboardMapper:decoder|ScanCode[0]'
+Slack : 2.408
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'clk_50'
+Slack : 16.762
+TNS   : 0.000
+
+Type  : Slow Model Removal 'KeyboardMapper:decoder|ScanCode[0]'
+Slack : -5.006
+TNS   : -5.006
+
+Type  : Slow Model Removal 'clk_50'
+Slack : 2.100
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'KeyboardMapper:decoder|ScanCode[0]'
+Slack : -4.074
+TNS   : -59.382
+
+Type  : Slow Model Minimum Pulse Width 'clk_358'
+Slack : -2.277
+TNS   : -241.260
+
+Type  : Slow Model Minimum Pulse Width 'MA_490:Core|cpu_clk'
+Slack : -0.742
+TNS   : -1041.768
+
+Type  : Slow Model Minimum Pulse Width 'clk_50'
+Slack : 8.758
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'Clock_gen|altpll_component|pll|clk[0]'
+Slack : 33.758
+TNS   : 0.000
+
+Type  : Fast Model Setup 'MA_490:Core|cpu_clk'
+Slack : -4.493
+TNS   : -2214.637
+
+Type  : Fast Model Setup 'clk_358'
+Slack : -1.240
+TNS   : -45.036
+
+Type  : Fast Model Setup 'clk_50'
+Slack : 0.349
+TNS   : 0.000
+
+Type  : Fast Model Setup 'Clock_gen|altpll_component|pll|clk[0]'
+Slack : 69.561
+TNS   : 0.000
+
+Type  : Fast Model Hold 'clk_50'
+Slack : 0.052
+TNS   : 0.000
+
+Type  : Fast Model Hold 'MA_490:Core|cpu_clk'
+Slack : 0.121
+TNS   : 0.000
+
+Type  : Fast Model Hold 'Clock_gen|altpll_component|pll|clk[0]'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'clk_358'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'KeyboardMapper:decoder|ScanCode[0]'
+Slack : 0.552
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'clk_50'
+Slack : 18.627
+TNS   : 0.000
+
+Type  : Fast Model Removal 'KeyboardMapper:decoder|ScanCode[0]'
+Slack : -0.985
+TNS   : -0.985
+
+Type  : Fast Model Removal 'clk_50'
+Slack : 0.941
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'KeyboardMapper:decoder|ScanCode[0]'
+Slack : -1.456
+TNS   : -8.964
+
+Type  : Fast Model Minimum Pulse Width 'clk_358'
+Slack : -1.423
+TNS   : -150.992
+
+Type  : Fast Model Minimum Pulse Width 'MA_490:Core|cpu_clk'
+Slack : -0.500
+TNS   : -702.000
+
+Type  : Fast Model Minimum Pulse Width 'clk_50'
+Slack : 9.000
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'Clock_gen|altpll_component|pll|clk[0]'
+Slack : 34.000
+TNS   : 0.000
+
+------------------------------------------------------------

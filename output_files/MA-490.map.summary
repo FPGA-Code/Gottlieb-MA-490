@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Dec 13 22:02:25 2015
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : MA-490
+Top-level Entity Name : MA_490_mini_bd
+Family : Cyclone II
+Total logic elements : 2,208
+    Total combinational functions : 1,634
+    Dedicated logic registers : 815
+Total registers : 815
+Total pins : 6
+Total virtual pins : 0
+Total memory bits : 16,384
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

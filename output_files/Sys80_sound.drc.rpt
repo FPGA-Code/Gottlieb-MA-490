@@ -1,0 +1,691 @@
+Design Assistant report for Sys80_sound
+Sun Nov 22 00:42:23 2015
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Design Assistant Summary
+  3. Design Assistant Settings
+  4. High Violations
+  5. Medium Violations
+  6. Information only Violations
+  7. Design Assistant Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Design Assistant Summary                                                ;
++-----------------------------------+-------------------------------------+
+; Design Assistant Status           ; Analyzed - Sun Nov 22 00:42:22 2015 ;
+; Revision Name                     ; Sys80_sound                         ;
+; Top-level Entity Name             ; Sys80_sound                         ;
+; Family                            ; Cyclone II                          ;
+; Total Critical Violations         ; 0                                   ;
+; Total High Violations             ; 65                                  ;
+; - Rule D101                       ; 62                                  ;
+; - Rule D103                       ; 3                                   ;
+; Total Medium Violations           ; 3                                   ;
+; - Rule C106                       ; 1                                   ;
+; - Rule R102                       ; 1                                   ;
+; - Rule D102                       ; 1                                   ;
+; Total Information only Violations ; 78                                  ;
+; - Rule T101                       ; 28                                  ;
+; - Rule T102                       ; 50                                  ;
++-----------------------------------+-------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design Assistant Settings                                                                                                                                                                                                                                                                                ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+; Option                                                                                                                                                                                                                                                                               ; Setting      ; To ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+; Design Assistant mode                                                                                                                                                                                                                                                                ; Post-Fitting ;    ;
+; Threshold value for clock net not mapped to clock spines rule                                                                                                                                                                                                                        ; 25           ;    ;
+; Minimum number of clock port feed by gated clocks                                                                                                                                                                                                                                    ; 30           ;    ;
+; Minimum number of node fan-out                                                                                                                                                                                                                                                       ; 30           ;    ;
+; Maximum number of nodes to report                                                                                                                                                                                                                                                    ; 50           ;    ;
+; Rule C101: Gated clock should be implemented according to the Altera standard scheme                                                                                                                                                                                                 ; On           ;    ;
+; Rule C102: Logic cell should not be used to generate an inverted clock signal                                                                                                                                                                                                        ; On           ;    ;
+; Rule C103: Gated clock does not feed at least a pre-defined number of clock ports to effectively save power                                                                                                                                                                          ; On           ;    ;
+; Rule C104: Clock signal source should drive only clock input ports                                                                                                                                                                                                                   ; On           ;    ;
+; Rule C105: Clock signal should be a global signal (Rule applies during post-fitting analysis. This rule applies during both post-fitting analysis and post-synthesis analysis if the design targets a MAX 3000 or MAX 7000 device. For more information, see the Help for the rule.) ; On           ;    ;
+; Rule C106: Clock signal source should not drive registers triggered by different clock edges                                                                                                                                                                                         ; On           ;    ;
+; Rule R101: Combinational logic used as a reset signal should be synchronized                                                                                                                                                                                                         ; On           ;    ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers                                                                                                                                                                                                ; On           ;    ;
+; Rule R103: External reset signal should be correctly synchronized                                                                                                                                                                                                                    ; On           ;    ;
+; Rule R104: The reset signal that is generated in one clock domain and used in another clock domain should be correctly synchronized                                                                                                                                                  ; On           ;    ;
+; Rule R105: The reset signal that is generated in one clock domain and used in another clock domain should be synchronized                                                                                                                                                            ; On           ;    ;
+; Rule T101: Nodes with more than the specified number of fan-outs                                                                                                                                                                                                                     ; On           ;    ;
+; Rule T102: Top nodes with the highest number of fan-outs                                                                                                                                                                                                                             ; On           ;    ;
+; Rule A101: Design should not contain combinational loops                                                                                                                                                                                                                             ; On           ;    ;
+; Rule A102: Register output should not drive its own control signal directly or through combinational logic                                                                                                                                                                           ; On           ;    ;
+; Rule A103: Design should not contain delay chains                                                                                                                                                                                                                                    ; On           ;    ;
+; Rule A104: Design should not contain ripple clock structures                                                                                                                                                                                                                         ; On           ;    ;
+; Rule A105: Pulses should not be implemented asynchronously                                                                                                                                                                                                                           ; On           ;    ;
+; Rule A106: Multiple pulses should not be generated in design                                                                                                                                                                                                                         ; On           ;    ;
+; Rule A107: Design should not contain SR latches                                                                                                                                                                                                                                      ; On           ;    ;
+; Rule A108: Design should not contain latches                                                                                                                                                                                                                                         ; On           ;    ;
+; Rule S101: Output enable and input of the same tri-state node should not be driven by same signal source                                                                                                                                                                             ; On           ;    ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source                                                                                                                                                                ; On           ;    ;
+; Rule S103: More than one asynchronous port of a register should not be driven by the same signal source                                                                                                                                                                              ; On           ;    ;
+; Rule S104: Clock port and any other port of a register should not be driven by the same signal source                                                                                                                                                                                ; On           ;    ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains                                                                                                                                                                                        ; On           ;    ;
+; Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain                                                                                                                 ; On           ;    ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains                                                                                                                                                                              ; On           ;    ;
+; Rule M101: Data bits are not synchronized when transferred to the state machine of asynchronous clock domains                                                                                                                                                                        ; Off          ;    ;
+; Rule M102: No reset signal defined to initialize the state machine                                                                                                                                                                                                                   ; Off          ;    ;
+; Rule M103: State machine should not contain an unreachable state                                                                                                                                                                                                                     ; Off          ;    ;
+; Rule M104: State machine should not contain a deadlock state                                                                                                                                                                                                                         ; Off          ;    ;
+; Rule M105: State machine should not contain a dead transition                                                                                                                                                                                                                        ; Off          ;    ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; High Violations                                                                                                                                                                                                                             ;
++-----------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+; Rule name                                                                                                             ; Name                                                                                                                ;
++-----------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 1           ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; RIOT:U2|ORA[0]                                                                                                      ;
+;  Destination node(s) from clock "clk_50"                                                                              ; dac:U3|SigmaLatch_q[4]                                                                                              ;
+;  Destination node(s) from clock "clk_50"                                                                              ; dac:U3|SigmaLatch_q[3]                                                                                              ;
+;  Destination node(s) from clock "clk_50"                                                                              ; dac:U3|SigmaLatch_q[2]                                                                                              ;
+;  Destination node(s) from clock "clk_50"                                                                              ; dac:U3|SigmaLatch_q[1]                                                                                              ;
+;  Destination node(s) from clock "clk_50"                                                                              ; dac:U3|SigmaLatch_q[0]                                                                                              ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 2           ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|MCycle[2]                                                                                                    ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg6 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 3           ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|MCycle[1]                                                                                                    ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg6 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 4           ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|MCycle[0]                                                                                                    ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg6 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 5           ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|BAH[1]                                                                                                       ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg9 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg9 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg9 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 6           ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|IR[3]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg6 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 7           ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|PC[0]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg0 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 8           ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|IR[1]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg6 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 9           ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|BAH[0]                                                                                                       ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg8 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg8 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg8 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 10          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|IR[0]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg6 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 11          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|IR[4]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg6 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 12          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|PC[2]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg2 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 13          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|PC[1]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg1 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 14          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|DL[1]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg1 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 15          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|IR[2]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg6 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 16          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|PC[4]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg4 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 17          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|PC[3]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg3 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 18          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|DL[3]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg3 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 19          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|S[3]                                                                                                         ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg3 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 20          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|S[0]                                                                                                         ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg0 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 21          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|Set_Addr_To_r[1]                                                                                             ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg9 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg8 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 22          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|BAL[0]                                                                                                       ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg0 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg0 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 23          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|Set_Addr_To_r[0]                                                                                             ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg9 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg8 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg3 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg0 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 24          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|S[2]                                                                                                         ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg2 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg2 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 25          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|S[1]                                                                                                         ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg1 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg1 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 26          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|PC[5]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg5 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 27          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|DL[5]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg5 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg5 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 28          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|DL[6]                                                                                                        ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg7 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg6 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 29          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|S[6]                                                                                                         ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg6 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg6 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 30          ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; T65:U1|S[4]                                                                                                         ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a0~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a5~porta_address_reg4 ;
+;  Destination node(s) from clock "CLK_PLL:Clock_gen|altpll:altpll_component|_clk0"                                     ; RRIOT_ROM:U2_MaskROM|altsyncram:altsyncram_component|altsyncram_5l71:auto_generated|ram_block1a2~porta_address_reg4 ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 31          ;                                                                                                                     ;
+;  Structure 31                                                                                                         ; T65:U1|S[5]                                                                                                         ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 32          ;                                                                                                                     ;
+;  Structure 32                                                                                                         ; T65:U1|S[7]                                                                                                         ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 33          ;                                                                                                                     ;
+;  Structure 33                                                                                                         ; T65:U1|PC[6]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 34          ;                                                                                                                     ;
+;  Structure 34                                                                                                         ; T65:U1|DL[7]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 35          ;                                                                                                                     ;
+;  Structure 35                                                                                                         ; T65:U1|PC[7]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 36          ;                                                                                                                     ;
+;  Structure 36                                                                                                         ; T65:U1|AD[7]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 37          ;                                                                                                                     ;
+;  Structure 37                                                                                                         ; T65:U1|AD[0]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 38          ;                                                                                                                     ;
+;  Structure 38                                                                                                         ; T65:U1|AD[1]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 39          ;                                                                                                                     ;
+;  Structure 39                                                                                                         ; T65:U1|AD[2]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 40          ;                                                                                                                     ;
+;  Structure 40                                                                                                         ; T65:U1|AD[3]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 41          ;                                                                                                                     ;
+;  Structure 41                                                                                                         ; T65:U1|AD[4]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 42          ;                                                                                                                     ;
+;  Structure 42                                                                                                         ; T65:U1|AD[5]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 43          ;                                                                                                                     ;
+;  Structure 43                                                                                                         ; T65:U1|AD[6]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 44          ;                                                                                                                     ;
+;  Structure 44                                                                                                         ; T65:U1|BAL[7]                                                                                                       ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 45          ;                                                                                                                     ;
+;  Structure 45                                                                                                         ; T65:U1|BAL[1]                                                                                                       ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 46          ;                                                                                                                     ;
+;  Structure 46                                                                                                         ; T65:U1|BAL[2]                                                                                                       ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 47          ;                                                                                                                     ;
+;  Structure 47                                                                                                         ; T65:U1|BAL[3]                                                                                                       ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 48          ;                                                                                                                     ;
+;  Structure 48                                                                                                         ; T65:U1|BAL[4]                                                                                                       ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 49          ;                                                                                                                     ;
+;  Structure 49                                                                                                         ; T65:U1|BAL[5]                                                                                                       ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 50          ;                                                                                                                     ;
+;  Structure 50                                                                                                         ; T65:U1|BAL[6]                                                                                                       ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 51          ;                                                                                                                     ;
+;  Structure 51                                                                                                         ; T65:U1|PC[8]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 52          ;                                                                                                                     ;
+;  Structure 52                                                                                                         ; T65:U1|PC[9]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 53          ;                                                                                                                     ;
+;  Structure 53                                                                                                         ; T65:U1|DL[0]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 54          ;                                                                                                                     ;
+;  Structure 54                                                                                                         ; T65:U1|DL[2]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 55          ;                                                                                                                     ;
+;  Structure 55                                                                                                         ; T65:U1|DL[4]                                                                                                        ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 56          ;                                                                                                                     ;
+;  Structure 56                                                                                                         ; RIOT:U2|ORA[1]                                                                                                      ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 57          ;                                                                                                                     ;
+;  Structure 57                                                                                                         ; RIOT:U2|ORA[2]                                                                                                      ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 58          ;                                                                                                                     ;
+;  Structure 58                                                                                                         ; RIOT:U2|ORA[3]                                                                                                      ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 59          ;                                                                                                                     ;
+;  Structure 59                                                                                                         ; RIOT:U2|ORA[4]                                                                                                      ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 60          ;                                                                                                                     ;
+;  Structure 60                                                                                                         ; RIOT:U2|ORA[5]                                                                                                      ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 61          ;                                                                                                                     ;
+;  Structure 61                                                                                                         ; RIOT:U2|ORA[6]                                                                                                      ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains - Structure 62          ;                                                                                                                     ;
+;  Structure 62                                                                                                         ; RIOT:U2|ORA[7]                                                                                                      ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 1 ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; RIOT:U2|ORA[5]                                                                                                      ;
+;  Synchronizer node(s) from clock "clk_50"                                                                             ; dac:U3|SigmaLatch_q[9]                                                                                              ;
+;  Synchronizer node(s) from clock "clk_50"                                                                             ; dac:U3|DACout_q                                                                                                     ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 2 ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; RIOT:U2|ORA[6]                                                                                                      ;
+;  Synchronizer node(s) from clock "clk_50"                                                                             ; dac:U3|SigmaLatch_q[9]                                                                                              ;
+;  Synchronizer node(s) from clock "clk_50"                                                                             ; dac:U3|DACout_q                                                                                                     ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains - Structure 3 ;                                                                                                                     ;
+;  Source node(s) from clock "phi1"                                                                                     ; RIOT:U2|ORA[7]                                                                                                      ;
+;  Synchronizer node(s) from clock "clk_50"                                                                             ; dac:U3|SigmaLatch_q[9]                                                                                              ;
+;  Synchronizer node(s) from clock "clk_50"                                                                             ; dac:U3|DACout_q                                                                                                     ;
++-----------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Medium Violations                                                                                                                                                                                           ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+
+; Rule name                                                                                                                                                                          ; Name                   ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+
+; Rule C106: Clock signal source should not drive registers triggered by different clock edges                                                                                       ; phi1                   ;
+;  Positive edge destination node(s) list                                                                                                                                            ; T65:U1|R_W_n_i         ;
+;  Positive edge destination node(s) list                                                                                                                                            ; T65:U1|BAH[1]          ;
+;  Positive edge destination node(s) list                                                                                                                                            ; T65:U1|PC[13]          ;
+;  Positive edge destination node(s) list                                                                                                                                            ; T65:U1|DL[5]           ;
+;  Positive edge destination node(s) list                                                                                                                                            ; T65:U1|BAL[5]          ;
+;  Positive edge destination node(s) list                                                                                                                                            ; T65:U1|AD[5]           ;
+;  Positive edge destination node(s) list                                                                                                                                            ; T65:U1|IR[5]           ;
+;  Positive edge destination node(s) list                                                                                                                                            ; T65:U1|BusA_r[5]       ;
+;  Positive edge destination node(s) list                                                                                                                                            ; T65:U1|BusB[5]         ;
+;  Positive edge destination node(s) list                                                                                                                                            ; T65:U1|PC[11]          ;
+;  Negative edge destination node(s) list                                                                                                                                            ; RIOT:U2|TIMERCLEARNEED ;
+;  Negative edge destination node(s) list                                                                                                                                            ; RIOT:U2|PA7CLEARNEED   ;
+;  Negative edge destination node(s) list                                                                                                                                            ; RIOT:U2|D_O[4]~reg0    ;
+;  Negative edge destination node(s) list                                                                                                                                            ; RIOT:U2|D_O[0]~reg0    ;
+;  Negative edge destination node(s) list                                                                                                                                            ; RIOT:U2|D_O[7]~reg0    ;
+;  Negative edge destination node(s) list                                                                                                                                            ; RIOT:U2|D_O[3]~reg0    ;
+;  Negative edge destination node(s) list                                                                                                                                            ; RIOT:U2|D_O[5]~reg0    ;
+;  Negative edge destination node(s) list                                                                                                                                            ; RIOT:U2|D_O[1]~reg0    ;
+;  Negative edge destination node(s) list                                                                                                                                            ; RIOT:U2|D_O[2]~reg0    ;
+;  Negative edge destination node(s) list                                                                                                                                            ; RIOT:U2|D_O[6]~reg0    ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers                                                                                              ; Reset_l                ;
+;  Reset signal destination node(s) list                                                                                                                                             ; T65:U1|RstCycle        ;
+;  Reset signal destination node(s) list                                                                                                                                             ; dac:U3|SigmaLatch_q[9] ;
+;  Reset signal destination node(s) list                                                                                                                                             ; T65:U1|R_W_n_i         ;
+;  Reset signal destination node(s) list                                                                                                                                             ; T65:U1|IR[7]           ;
+;  Reset signal destination node(s) list                                                                                                                                             ; T65:U1|MCycle[2]       ;
+;  Reset signal destination node(s) list                                                                                                                                             ; T65:U1|MCycle[1]       ;
+;  Reset signal destination node(s) list                                                                                                                                             ; T65:U1|MCycle[0]       ;
+;  Reset signal destination node(s) list                                                                                                                                             ; T65:U1|IR[6]           ;
+;  Reset signal destination node(s) list                                                                                                                                             ; T65:U1|BAH[1]          ;
+;  Reset signal destination node(s) list                                                                                                                                             ; T65:U1|IR[5]           ;
+; Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain - Structure 1 ;                        ;
+;  Source node(s) from clock "phi1" - (Bus)                                                                                                                                          ; RIOT:U2|ORA            ;
+;  Synchronizer node(s) from clock "clk_50" - (Bus)                                                                                                                                  ; dac:U3|SigmaLatch_q    ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Information only Violations                                                                                     ;
++------------------------------------------------------------------+------------------------------------+---------+
+; Rule name                                                        ; Name                               ; Fan-Out ;
++------------------------------------------------------------------+------------------------------------+---------+
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|IR[7]                       ; 57      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|MCycle[2]                   ; 45      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|MCycle[1]                   ; 45      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|MCycle[0]                   ; 44      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|IR[6]                       ; 55      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|IR[5]                       ; 68      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux76~1                     ; 186     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|IR[3]                       ; 75      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux74~1                     ; 173     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|IR[1]                       ; 58      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|IR[0]                       ; 68      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|IR[4]                       ; 68      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux71~1                     ; 83      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|IR[2]                       ; 60      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux72~1                     ; 88      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; phi1~clkctrl                       ; 699     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; Reset_l                            ; 112     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|ALU_Op_r[3]                 ; 35      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux73~1                     ; 78      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux75~1                     ; 180     ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux77~4                     ; 67      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux84~4                     ; 68      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux83~4                     ; 68      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux82~4                     ; 68      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux81~4                     ; 68      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux80~4                     ; 68      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux79~4                     ; 68      ;
+; Rule T101: Nodes with more than the specified number of fan-outs ; T65:U1|Mux78~4                     ; 67      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; phi1~clkctrl                       ; 699     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux76~1                     ; 186     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux75~1                     ; 180     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux74~1                     ; 173     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; Reset_l                            ; 112     ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux72~1                     ; 88      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux71~1                     ; 83      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux73~1                     ; 78      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|IR[3]                       ; 75      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux82~4                     ; 68      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux81~4                     ; 68      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|IR[0]                       ; 68      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux79~4                     ; 68      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|IR[4]                       ; 68      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux83~4                     ; 68      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux80~4                     ; 68      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux84~4                     ; 68      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|IR[5]                       ; 68      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux78~4                     ; 67      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux77~4                     ; 67      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|IR[2]                       ; 60      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|IR[1]                       ; 58      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|IR[7]                       ; 57      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|IR[6]                       ; 55      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|MCycle[2]                   ; 45      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|MCycle[1]                   ; 45      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|MCycle[0]                   ; 44      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|ALU_Op_r[3]                 ; 35      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|T65_MCode:mcode|process_0~2 ; 28      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; RIOT:U2|process_1~0                ; 24      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; RIOT:U2|PERIOD~10                  ; 24      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Write_Data_r[1]             ; 24      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|ALU_Op_r[0]                 ; 24      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Write_Data_r[0]             ; 24      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|ALU_Op_r[1]                 ; 23      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux67~0                     ; 18      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Set_Addr_To_r[0]            ; 18      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Equal6~0                    ; 17      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|ALU_Op_r[2]                 ; 17      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|T65_MCode:mcode|Mux108~9    ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Write_Data_r[2]             ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|T65_MCode:mcode|Mux109~5    ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Set_Addr_To_r[1]            ; 16      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|T65_MCode:mcode|Mux37~0     ; 15      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|T65_MCode:mcode|Mux120~3    ; 15      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|T65_MCode:mcode|Mux37~3     ; 15      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|Mux66~0                     ; 14      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|T65_MCode:mcode|Mux37~2     ; 14      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|T65_MCode:mcode|Mux107~1    ; 14      ;
+; Rule T102: Top nodes with the highest number of fan-outs         ; T65:U1|T65_MCode:mcode|Mux118~5    ; 13      ;
++------------------------------------------------------------------+------------------------------------+---------+
+
+
++---------------------------+
+; Design Assistant Messages ;
++---------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Design Assistant
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sun Nov 22 00:42:22 2015
+Info: Command: quartus_drc --read_settings_files=on --write_settings_files=off Sys80_sound -c Sys80_sound
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'Sys80_sound.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332144): No user constrained generated clocks found in the design
+Info (332144): No user constrained base clocks found in the design
+Critical Warning (308060): (High) Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains. (Value defined:2). Found 62 asynchronous clock domain interface structure(s) related to this rule.
+    Critical Warning (308012): Node  "RIOT:U2|ORA[0]"
+    Critical Warning (308012): Node  "T65:U1|MCycle[2]"
+    Critical Warning (308012): Node  "T65:U1|MCycle[1]"
+    Critical Warning (308012): Node  "T65:U1|MCycle[0]"
+    Critical Warning (308012): Node  "T65:U1|BAH[1]"
+    Critical Warning (308012): Node  "T65:U1|IR[3]"
+    Critical Warning (308012): Node  "T65:U1|PC[0]"
+    Critical Warning (308012): Node  "T65:U1|IR[1]"
+    Critical Warning (308012): Node  "T65:U1|BAH[0]"
+    Critical Warning (308012): Node  "T65:U1|IR[0]"
+    Critical Warning (308012): Node  "T65:U1|IR[4]"
+    Critical Warning (308012): Node  "T65:U1|PC[2]"
+    Critical Warning (308012): Node  "T65:U1|PC[1]"
+    Critical Warning (308012): Node  "T65:U1|DL[1]"
+    Critical Warning (308012): Node  "T65:U1|IR[2]"
+    Critical Warning (308012): Node  "T65:U1|PC[4]"
+    Critical Warning (308012): Node  "T65:U1|PC[3]"
+    Critical Warning (308012): Node  "T65:U1|DL[3]"
+    Critical Warning (308012): Node  "T65:U1|S[3]"
+    Critical Warning (308012): Node  "T65:U1|S[0]"
+    Critical Warning (308012): Node  "T65:U1|Set_Addr_To_r[1]"
+    Critical Warning (308012): Node  "T65:U1|BAL[0]"
+    Critical Warning (308012): Node  "T65:U1|Set_Addr_To_r[0]"
+    Critical Warning (308012): Node  "T65:U1|S[2]"
+    Critical Warning (308012): Node  "T65:U1|S[1]"
+    Critical Warning (308012): Node  "T65:U1|PC[5]"
+    Critical Warning (308012): Node  "T65:U1|DL[5]"
+    Critical Warning (308012): Node  "T65:U1|DL[6]"
+    Critical Warning (308012): Node  "T65:U1|S[6]"
+    Critical Warning (308012): Node  "T65:U1|S[4]"
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Critical Warning (308067): (High) Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains. (Value defined:2). Found 3 asynchronous clock domain interface structure(s) related to this rule.
+    Critical Warning (308012): Node  "RIOT:U2|ORA[5]"
+    Critical Warning (308012): Node  "RIOT:U2|ORA[6]"
+    Critical Warning (308012): Node  "RIOT:U2|ORA[7]"
+Warning (308022): (Medium) Rule C106: Clock signal source should not drive registers triggered by different clock edges. Found 1 node(s) related to this rule.
+    Warning (308010): Node  "phi1"
+Warning (308023): (Medium) Rule R102: External reset signals should be synchronized using two cascaded registers. Found 1 node(s) related to this rule.
+    Warning (308010): Node  "Reset_l"
+Warning (308071): (Medium) Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain. (Value defined:2). Found 1 asynchronous clock domain interface structure(s) related to this rule.
+    Warning (308010): Node  "RIOT:U2|ORA (Bus)"
+Info (308046): (Information) Rule T101: Nodes with more than the specified number of fan-outs. (Value defined:30). Found 28 node(s) with highest fan-out.
+    Info (308011): Node  "T65:U1|IR[7]"
+    Info (308011): Node  "T65:U1|MCycle[2]"
+    Info (308011): Node  "T65:U1|MCycle[1]"
+    Info (308011): Node  "T65:U1|MCycle[0]"
+    Info (308011): Node  "T65:U1|IR[6]"
+    Info (308011): Node  "T65:U1|IR[5]"
+    Info (308011): Node  "T65:U1|Mux76~1"
+    Info (308011): Node  "T65:U1|IR[3]"
+    Info (308011): Node  "T65:U1|Mux74~1"
+    Info (308011): Node  "T65:U1|IR[1]"
+    Info (308011): Node  "T65:U1|IR[0]"
+    Info (308011): Node  "T65:U1|IR[4]"
+    Info (308011): Node  "T65:U1|Mux71~1"
+    Info (308011): Node  "T65:U1|IR[2]"
+    Info (308011): Node  "T65:U1|Mux72~1"
+    Info (308011): Node  "phi1~clkctrl"
+    Info (308011): Node  "Reset_l"
+    Info (308011): Node  "T65:U1|ALU_Op_r[3]"
+    Info (308011): Node  "T65:U1|Mux73~1"
+    Info (308011): Node  "T65:U1|Mux75~1"
+    Info (308011): Node  "T65:U1|Mux77~4"
+    Info (308011): Node  "T65:U1|Mux84~4"
+    Info (308011): Node  "T65:U1|Mux83~4"
+    Info (308011): Node  "T65:U1|Mux82~4"
+    Info (308011): Node  "T65:U1|Mux81~4"
+    Info (308011): Node  "T65:U1|Mux80~4"
+    Info (308011): Node  "T65:U1|Mux79~4"
+    Info (308011): Node  "T65:U1|Mux78~4"
+Info (308044): (Information) Rule T102: Top nodes with the highest number of fan-outs. (Value defined:50). Found 50 node(s) with highest fan-out.
+    Info (308011): Node  "phi1~clkctrl"
+    Info (308011): Node  "T65:U1|Mux76~1"
+    Info (308011): Node  "T65:U1|Mux75~1"
+    Info (308011): Node  "T65:U1|Mux74~1"
+    Info (308011): Node  "Reset_l"
+    Info (308011): Node  "T65:U1|Mux72~1"
+    Info (308011): Node  "T65:U1|Mux71~1"
+    Info (308011): Node  "T65:U1|Mux73~1"
+    Info (308011): Node  "T65:U1|IR[3]"
+    Info (308011): Node  "T65:U1|Mux82~4"
+    Info (308011): Node  "T65:U1|Mux81~4"
+    Info (308011): Node  "T65:U1|IR[0]"
+    Info (308011): Node  "T65:U1|Mux79~4"
+    Info (308011): Node  "T65:U1|IR[4]"
+    Info (308011): Node  "T65:U1|Mux83~4"
+    Info (308011): Node  "T65:U1|Mux80~4"
+    Info (308011): Node  "T65:U1|Mux84~4"
+    Info (308011): Node  "T65:U1|IR[5]"
+    Info (308011): Node  "T65:U1|Mux78~4"
+    Info (308011): Node  "T65:U1|Mux77~4"
+    Info (308011): Node  "T65:U1|IR[2]"
+    Info (308011): Node  "T65:U1|IR[1]"
+    Info (308011): Node  "T65:U1|IR[7]"
+    Info (308011): Node  "T65:U1|IR[6]"
+    Info (308011): Node  "T65:U1|MCycle[2]"
+    Info (308011): Node  "T65:U1|MCycle[1]"
+    Info (308011): Node  "T65:U1|MCycle[0]"
+    Info (308011): Node  "T65:U1|ALU_Op_r[3]"
+    Info (308011): Node  "T65:U1|T65_MCode:mcode|process_0~2"
+    Info (308011): Node  "RIOT:U2|process_1~0"
+    Info (308002): Truncated list of Design Assistant messages to 30 messages. Go to sections under Design Assistant section of Compilation Report for complete lists of Design Assistant messages generated.
+Info (308007): Design Assistant information: finished post-fitting analysis of current design -- generated 78 information messages and 68 warning messages
+Info: Quartus II 64-Bit Design Assistant was successful. 0 errors, 42 warnings
+    Info: Peak virtual memory: 405 megabytes
+    Info: Processing ended: Sun Nov 22 00:42:23 2015
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

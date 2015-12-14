@@ -1,0 +1,117 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'Sys80_sound:MA55|cpu_clk'
+Slack : -15.628
+TNS   : -7813.212
+
+Type  : Slow Model Setup 'clk_358'
+Slack : -6.262
+TNS   : -200.864
+
+Type  : Slow Model Setup 'clk_50'
+Slack : -1.224
+TNS   : -7.504
+
+Type  : Slow Model Setup 'Clock_gen|altpll_component|pll|clk[0]'
+Slack : 68.995
+TNS   : 0.000
+
+Type  : Slow Model Hold 'Clock_gen|altpll_component|pll|clk[0]'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Hold 'Sys80_sound:MA55|cpu_clk'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Hold 'clk_358'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Hold 'clk_50'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'clk_50'
+Slack : 15.686
+TNS   : 0.000
+
+Type  : Slow Model Removal 'clk_50'
+Slack : 3.290
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'clk_358'
+Slack : -2.277
+TNS   : -195.720
+
+Type  : Slow Model Minimum Pulse Width 'Sys80_sound:MA55|cpu_clk'
+Slack : -0.742
+TNS   : -1037.316
+
+Type  : Slow Model Minimum Pulse Width 'clk_50'
+Slack : 8.758
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'Clock_gen|altpll_component|pll|clk[0]'
+Slack : 33.758
+TNS   : 0.000
+
+Type  : Fast Model Setup 'Sys80_sound:MA55|cpu_clk'
+Slack : -4.146
+TNS   : -2043.787
+
+Type  : Fast Model Setup 'clk_358'
+Slack : -1.223
+TNS   : -41.420
+
+Type  : Fast Model Setup 'clk_50'
+Slack : 0.353
+TNS   : 0.000
+
+Type  : Fast Model Setup 'Clock_gen|altpll_component|pll|clk[0]'
+Slack : 69.641
+TNS   : 0.000
+
+Type  : Fast Model Hold 'clk_50'
+Slack : 0.047
+TNS   : 0.000
+
+Type  : Fast Model Hold 'Clock_gen|altpll_component|pll|clk[0]'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'Sys80_sound:MA55|cpu_clk'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'clk_358'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'clk_50'
+Slack : 18.472
+TNS   : 0.000
+
+Type  : Fast Model Removal 'clk_50'
+Slack : 1.169
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'clk_358'
+Slack : -1.423
+TNS   : -122.532
+
+Type  : Fast Model Minimum Pulse Width 'Sys80_sound:MA55|cpu_clk'
+Slack : -0.500
+TNS   : -699.000
+
+Type  : Fast Model Minimum Pulse Width 'clk_50'
+Slack : 9.000
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'Clock_gen|altpll_component|pll|clk[0]'
+Slack : 34.000
+TNS   : 0.000
+
+------------------------------------------------------------
